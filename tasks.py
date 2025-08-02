@@ -13,6 +13,10 @@ async def process_user_request(update, context):
         await update.message.reply_text("❗️Please include a short description of the outfit.")
         return
 
+    if not update.message.photo:
+        await update.message.reply_text("📸 Please upload a photo of the outfit along with the description.")
+        return
+
     await update.message.reply_text("🧵 Processing your request...")
 
     # Download image
